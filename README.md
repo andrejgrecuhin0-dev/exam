@@ -1,92 +1,43 @@
-# Decorator Pattern — TypeScript
+# Final Exam: Event-Driven Architecture (Kafka)
 
-> Structural design pattern that lets you attach new behaviors to objects
-> by placing them inside wrapper objects that contain those behaviors.
+**Виконав:** Гречухін А. (додайте вашу групу, наприклад, 221)
 
----
+## 📌 Опис проєкту
+Цей проєкт демонструє розуміння та практичне застосування **Event-Driven (подійно-орієнтованої) архітектури**. 
+В рамках розв'язання було налаштовано базову конфігурацію брокера повідомлень **Apache Kafka**, а також розгорнуто два вебсервіси на базі HTML/JS для обміну динамічними повідомленнями в реальному часі.
 
-## Directory Structure
+Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами (вебсервісами) та інструментом тестування API (Postman).
 
-```
+## 🗂 Структура проєкту
+
+\`\`\`text
 exam/
 ├── src/
-│   └── structural/
-│       └── decorator/
-│           ├── Component.ts          # Interface
-│           ├── ConcreteComponent.ts  # Default implementation
-│           ├── BaseDecorator.ts      # Abstract decorator
-│           ├── ConcreteDecoratorA.ts # Adds behavior A
-│           ├── ConcreteDecoratorB.ts # Adds behavior B
-│           └── index.ts              # Barrel export
-├── examples/
-│   └── index.ts                      # Usage demo
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+│   ├── web1/
+│   │   └── index.html    # Клієнт 1 для відправки/отримання повідомлень
+│   └── web2/
+│       └── index.html    # Клієнт 2 для відправки/отримання повідомлень
+├── broker.conf           # Файл конфігурації Kafka (назва може відрізнятися)
+├── docker-compose.yml    # Конфігурація для підняття Kafka та Zookeeper через Docker
+├── .editorconfig         # Конфігурація стилю коду
+├── .gitignore            # Ігнорування зайвих файлів (node_modules тощо)
+└── README.md             # Опис проєкту
+\`\`\`
 
----
+## 🚀 Інструкція із запуску
 
-## UML
+### 1. Запуск інфраструктури (Kafka)
+Переконайтеся, що у вас встановлений Docker. Відкрийте термінал у корені проєкту та виконайте команду для підняття контейнерів:
+\`\`\`bash
+docker-compose up -d
+\`\`\`
 
-```
-      «interface»
-      Component
-    ──────────────
-    + operation()
-         ▲
-         │ implements
-    ─────┴──────────────────────────────────┐
-    │                                        │
-ConcreteComponent               BaseDecorator
-─────────────────           ─────────────────────────
-+ operation()               - wrappee: Component
-                            ──────────────────────────
-                            + BaseDecorator(c)
-                            + operation()
-                                    ▲
-                          ┌─────────┴──────────┐
-                          │                    │
-               ConcreteDecoratorA    ConcreteDecoratorB
-               ──────────────────    ──────────────────
-               + operation()         + operation()
-```
+### 2. Запуск вебклієнтів
+Відкрийте файли клієнтів у вашому веббраузері:
+- `src/web1/index.html`
+- `src/web2/index.html`
 
----
+Тепер ви можете відправляти повідомлення в одному вікні і миттєво отримувати їх в іншому завдяки Kafka.
 
-## Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Run the example
-npm run dev
-```
-
-### Expected output
-
-```
-=== Client: simple component ===
-RESULT: ConcreteComponent
-
-=== Client: decorated with A ===
-RESULT: ConcreteDecoratorA(ConcreteComponent)
-
-=== Client: decorated with A + B ===
-RESULT: ConcreteDecoratorB(ConcreteDecoratorA(ConcreteComponent))
-```
-
----
-
-## How It Works
-
-| Class | Role |
-|---|---|
-| `Component` | Common interface for components and decorators |
-| `ConcreteComponent` | Core object whose behavior can be altered |
-| `BaseDecorator` | Maintains a reference to a wrapped component and delegates |
-| `ConcreteDecoratorA/B` | Add extra behavior before/after delegation |
-
-Decorators can be **chained** in any order and combination, creating a
-flexible alternative to subclassing for extending functionality.
+### 3. Тестування через Postman
+Ви можете емулювати відправку або отримання подій (імітуючи сторонній сервіс), налаштувавши підключення у Postman до вашого Kafka REST Proxy або WebSocket порту, вказаного в конфігурації.
