@@ -1,485 +1,92 @@
-# Final Exam
+# Decorator Pattern — TypeScript
 
-> Final exam for checking student knowledge and practical skills
+> Structural design pattern that lets you attach new behaviors to objects
+> by placing them inside wrapper objects that contain those behaviors.
 
-## Test 1:
+---
 
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу  Kafka, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <message>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
+## Directory Structure
 
 ```
-## Test 2:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу  RabbitMQ, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <message>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
+exam/
+├── src/
+│   └── structural/
+│       └── decorator/
+│           ├── Component.ts          # Interface
+│           ├── ConcreteComponent.ts  # Default implementation
+│           ├── BaseDecorator.ts      # Abstract decorator
+│           ├── ConcreteDecoratorA.ts # Adds behavior A
+│           ├── ConcreteDecoratorB.ts # Adds behavior B
+│           └── index.ts              # Barrel export
+├── examples/
+│   └── index.ts                      # Usage demo
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-## Test 3:
+---
 
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу  ActiveMQ, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman. Відповідно до структури наведеної нище.
-
-```
-
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <message>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
+## UML
 
 ```
-
-## Test 4:
-
-> Реалізовати породжуючий патерн factory, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── factory
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-
-## Test 5:
-
-> Реалізовати породжуючий патерн factory-method, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── factory-method
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 6:
-
-> Реалізовати породжуючий патерн builder, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── builder
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 7:
-
-> Реалізовати породжуючий патерн singleton, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── creational
-│   │   │   ├── singleton
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 8:
-
-> Реалізовати структурний патерн adapter, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── structural
-│   │   │   ├── adapter
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 9:
-
-> Реалізовати структурний патерн facade, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── structural
-│   │   │   ├── facade
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 10:
-
-> Реалізовати структурний патерн decorator, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── structural
-│   │   │   ├── decorator
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 11:
-
-> Реалізовати поведінковий патерн strategy, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── strategy
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
+      «interface»
+      Component
+    ──────────────
+    + operation()
+         ▲
+         │ implements
+    ─────┴──────────────────────────────────┐
+    │                                        │
+ConcreteComponent               BaseDecorator
+─────────────────           ─────────────────────────
++ operation()               - wrappee: Component
+                            ──────────────────────────
+                            + BaseDecorator(c)
+                            + operation()
+                                    ▲
+                          ┌─────────┴──────────┐
+                          │                    │
+               ConcreteDecoratorA    ConcreteDecoratorB
+               ──────────────────    ──────────────────
+               + operation()         + operation()
 ```
 
-## Test 12:
+---
 
-> Реалізовати поведінковий патерн observer, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
+## Getting Started
 
-### Directory Structure
+```bash
+# Install dependencies
+npm install
 
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── observer
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
+# Run the example
+npm run dev
 ```
 
-## Test 13:
-
-> Реалізовати поведінковий патерн Iterator, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
+### Expected output
 
 ```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── Iterator
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
+=== Client: simple component ===
+RESULT: ConcreteComponent
 
-```
-## Test 14:
+=== Client: decorated with A ===
+RESULT: ConcreteDecoratorA(ConcreteComponent)
 
-> Реалізовати поведінковий патерн Command, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── Command
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 15:
-
-> Реалізовати поведінковий патерн Mediator, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── Mediator
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 16:
-
-> Реалізовати поведінковий патерн State, Використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── behavioral
-│   │   │   ├── State
-│   ├── examples
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
+=== Client: decorated with A + B ===
+RESULT: ConcreteDecoratorB(ConcreteDecoratorA(ConcreteComponent))
 ```
 
-## Test 17:
+---
 
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Single Responsibility Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
+## How It Works
 
-### Directory Structure
+| Class | Role |
+|---|---|
+| `Component` | Common interface for components and decorators |
+| `ConcreteComponent` | Core object whose behavior can be altered |
+| `BaseDecorator` | Maintains a reference to a wrapped component and delegates |
+| `ConcreteDecoratorA/B` | Add extra behavior before/after delegation |
 
-```
-├── exam
-│   ├── src
-│   │   ├── SRP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 18:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Open Close Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── OCP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 19:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Liskov Substitution Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── LSP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 20:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Interface Segregation Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── ISP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 21:
-
-> Продемонструвати розуміння та застусування одного із SOLID принципів на приктиці, демонструючи антипатер та найкращі практики з метою створити гнучку, масштабовану та чисту архітектуру. А саме Dependency Inversion Principe, використовуючи мову програмування Typescript. Відповідно до структури наведеної нище.
-
-### Directory Structure
-
-```
-├── exam
-│   ├── src
-│   │   ├── DIP 
-│   │   │   ├── antipattern
-│   │   │   ├── refactored
-│   │   │   │
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 22:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу MQTT-брокер Mosquitto, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <mqtt>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-## Test 23:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу MQTT-брокер EMQX, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <message>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
-
-## Test 24:
-
-### Directory Structure
-> Продемонструвати розуміння Event-Driven архітектури. А саме налаштувати базової конфігурацію сервісу MQTT-брокера HiveMQ, розгорнувши два веб-сервіси на HTML/JS для обміну динамічними повідомленнями в реальному часі. Продемонстровано успішну крос-протокольну взаємодію між браузерними клієнтами та Postman. Відповідно до структури наведеної нище.
-
-```
-├── exam
-│   ├── src
-│   │   ├── web1 
-│   │   │   ├── index.html
-│   │   ├── web2 
-│   │   │   ├── index.html  
-│   ├── <message>.conf  
-│   ├── docker-compose.yml
-│   ├── .editorconfig
-│   ├── .gitignore
-│   ├── package.json
-│   ├── README.md
-└──
-
-```
+Decorators can be **chained** in any order and combination, creating a
+flexible alternative to subclassing for extending functionality.

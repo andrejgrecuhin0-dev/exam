@@ -1,0 +1,17 @@
+{
+  "name": "design-patterns-ts",
+  "version": "1.0.0",
+  "description": "Design Patterns in TypeScript — Decorator",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node examples/index.ts",
+    "dev": "ts-node examples/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.12.7"
+  }
+}
